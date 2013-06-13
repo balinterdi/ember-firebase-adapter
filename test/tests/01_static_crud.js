@@ -2,7 +2,8 @@ var Person = DS.Firebase.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   twitter: DS.attr('string'),
-  github: DS.attr('string')
+  github: DS.attr('string'),
+  groups: DS.hasMany('Group')
 });
 
 Person.toString = function() {
@@ -62,7 +63,7 @@ asyncTest("Creating records", function() {
     lastName: "Katz",
     twitter: "wycats"
   };
-  
+
   var newPerson = Person.createRecord(fix);
   this.store.commit();
 
